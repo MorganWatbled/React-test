@@ -8,6 +8,10 @@ function App (){
   const [query , setQuery] = useState("");
 
   const [users, setUsers] = useState(Users);
+  
+  const allDepartement = users.map( user => {
+    return console.log(user.departments);
+  });
 
   useEffect(() => {
     if (query !== null) {
