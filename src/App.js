@@ -10,8 +10,13 @@ function App (){
   const [users, setUsers] = useState(Users);
 
   useEffect(() => {
-    setUsers(users.filter(item => item.departments.includes(query)));
-  }, [query]);
+    if (query !== null) {
+       // .filter sur Users (json)
+       setUsers(Users.filter(item => item.departments.includes(query)));
+    } else {
+    setUsers(Users);
+    }
+    }, [query]);
   
   console.log(query)
 
@@ -37,7 +42,7 @@ function App (){
       </Fragment>  
         <table>
           <thead>
-            <tr> Prenom </tr> 
+            <tr><th>Prenom</th></tr> 
           </thead>
           <tbody>
           {
